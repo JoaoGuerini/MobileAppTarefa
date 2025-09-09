@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
-        backgroundColor: "red",
+        backgroundColor: "#181DEA",
         paddingTop: 50,
         paddingHorizontal: 20,
     },
@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "bold",
         marginBottom: 20,
-        color: "black",
+        color: "white",
     },
     emptyListTitle: {
         marginTop: 20,

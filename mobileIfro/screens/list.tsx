@@ -6,6 +6,7 @@ import { ListType } from '../models/listaCompras/listType';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function Lista() {
     const [text, setText] = useState('');
@@ -23,14 +24,22 @@ export default function Lista() {
         setText(``);
     }
 
-    const ItemRender = ({ nome }: ListType) => (
-        <View>
-            <View style={styles.viewItemRender}>
-                <Fontisto name="checkbox-active" size={24} color="black" />
-                <Text style={styles.viewItemText}>{nome}</Text>
+    const DeleteItem = (item : ListType) => {
+        var newList = list.filter(x => x.id != item.id)
+        setList(newList)
+    }
+
+    const ItemRender = (item: ListType) => (
+        <>
+            <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
+                <View style={styles.viewItemRender}>
+                    <Fontisto name="checkbox-active" size={24} color="black" />
+                    <Text style={styles.viewItemText}>{item.nome}</Text>
+                </View>
+                <MaterialCommunityIcons name="delete-empty" size={30} color="black" onPress={() => DeleteItem(item) }/>
             </View>
-            <View style={{ height: 1, backgroundColor: '#ccc', marginVertical: 10 }} />
-        </View>
+            <View style={{ height: 2, backgroundColor: '#ccc', marginVertical: 10 }} />
+        </>
     );
 
     return (
